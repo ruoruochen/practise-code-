@@ -1,0 +1,8 @@
+{
+  // How to debugger es6 in vscode https://medium.com/@drcallaway/debugging-es6-in-visual-studio-code-4444db797954
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
