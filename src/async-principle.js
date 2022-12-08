@@ -1,20 +1,20 @@
-async function myAsyncTest (){
-    await new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            console.log('2000');
-            resolve('2000')}
-        ,2000)
-    })
+// async function myAsyncTest (){
+//     await new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log('2000');
+//             resolve('2000')}
+//         ,2000)
+//     })
 
-    await new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            console.log('5000'); 
-            resolve('5000');
-        },5000)
-    })
-}
+//     await new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log('5000'); 
+//             resolve('5000');
+//         },5000)
+//     })
+// }
 
-myAsyncTest();
+// myAsyncTest();
 
 
 /**  async 是generator函数的语法糖，即generator函数自执行
@@ -35,7 +35,7 @@ myAsyncTest();
  */
 
 // async函数实现原理
-function spawn(GeneratorFn){
+export function spawn(GeneratorFn){
     return new Promise((resolve,reject)=>{
         const gen = GeneratorFn();
         console.log(gen,typeof gen)
@@ -61,7 +61,7 @@ function spawn(GeneratorFn){
     })
 }
 
-function* myAsyncTest2(){
+export function* myAsyncTest2(){
     yield new Promise((resolve,reject)=>{
         setTimeout(()=>{
             console.log('2000');
@@ -78,4 +78,3 @@ function* myAsyncTest2(){
       
  }
 
-spawn(myAsyncTest2);
